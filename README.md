@@ -20,9 +20,7 @@ ResiVox is a comprehensive community management platform that enables residents 
 ### Resident
 <img width="550" height="250" alt="image" src="https://github.com/user-attachments/assets/873ed55f-1a29-4cd5-89a3-6eb598c0a6ad" />   <img width="550" height="250" alt="image" src="https://github.com/user-attachments/assets/9b589785-1403-4601-8d75-5ede0d1807db" />
 
-### Voice Assistant Interface
-<img width="1886" height="914" alt="image" src="https://github.com/user-attachments/assets/9b589785-1403-4601-8d75-5ede0d1807db" />
-<img width="1892" height="913" alt="image" src="https://github.com/user-attachments/assets/51d6a0a5-4f6d-440c-9877-9129cfcbdc63" />
+<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/51d6a0a5-4f6d-440c-9877-9129cfcbdc63" />
 
 <img width="1886" height="870" alt="image" src="https://github.com/user-attachments/assets/e5fc9f17-813d-4cca-8805-6ee238c97e1c" />
 
