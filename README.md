@@ -297,52 +297,6 @@ ResiVox/
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🆘 Troubleshooting
-
-### Common Issues:
-
-1. **MongoDB Connection Error**:
-   ```bash
-   # Check if MongoDB is running
-   mongosh --eval "db.adminCommand('ismaster')"
-   
-   # Start MongoDB service
-   net start MongoDB  # Windows
-   brew services start mongodb-community  # macOS
-   sudo systemctl start mongod  # Linux
-   ```
-
-2. **Port Already in Use**:
-   ```bash
-   # Kill process on port 3001
-   npx kill-port 3001
-   
-   # Or change port in .env
-   PORT=3002
-   ```
-
-3. **JWT Secret Error**:
-   ```bash
-   # Generate a secure JWT secret
-   node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
-   ```
-
-4. **Voice Assistant Not Working**:
-   - Check browser microphone permissions
-   - Ensure HTTPS in production (required for microphone access)
-   - Verify Omnidim.io API key in .env
-
-5. **Database Seeding Issues**:
-   ```bash
-   # Clear database and re-seed
-   mongosh resivox --eval "db.dropDatabase()"
-   npm run seed
-   ```
-
 ## 🧪 Testing
 
 ### Manual Testing Checklist:
@@ -354,60 +308,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [ ] Feedback submission
 - [ ] Admin dashboard analytics
 
-### API Testing with curl:
-```bash
-# Test health endpoint
-curl http://localhost:3001/api/health
 
-# Test user registration
-curl -X POST http://localhost:3001/api/auth/register \
-  -H "Content-Type: application/json" \
-  -d '{"role":"resident","firstName":"John","lastName":"Doe","email":"john@example.com","unitNumber":"101","password":"password123"}'
-
-# Test login
-curl -X POST http://localhost:3001/api/auth/login \
-  -H "Content-Type: application/json" \
-  -d '{"role":"resident","email":"john@example.com","password":"password123"}'
-```
-
-## 📈 Roadmap
-
-### Version 2.0 (Planned Features):
-- [ ] **Mobile App**: React Native mobile application
-- [ ] **Push Notifications**: Real-time alerts for residents
-- [ ] **Payment Integration**: Online rent and fee payments
-- [ ] **Visitor Management**: Guest registration system
-- [ ] **IoT Integration**: Smart home device connectivity
-- [ ] **Multi-language Support**: Internationalization
-- [ ] **Advanced Analytics**: Machine learning insights
-- [ ] **Video Calls**: Virtual meetings with management
-
-### Version 1.1 (Next Release):
-- [ ] **Email Notifications**: Automated email alerts
-- [ ] **File Uploads**: Attach images to tickets
-- [ ] **Calendar Integration**: Sync events with Google Calendar
-- [ ] **Bulk Operations**: Mass ticket updates for admins
-- [ ] **Export Features**: PDF reports and data export
-
-## 🏆 Awards & Recognition
-
-- 🥇 **Best Community Management Solution** - TechCrunch Disrupt 2024
-- 🏅 **Innovation in Voice Technology** - Voice AI Summit 2024
-- ⭐ **Top Rated** - 4.9/5 stars on GitHub
-
-## 👥 Team
-
-- **Lead Developer**: [Vishakha Mishra](https://github.com/Vishakhamishra2406)
-- **Voice AI Specialist**: ResiVox AI Team
-- **UI/UX Designer**: Community Design Team
-- **DevOps Engineer**: Infrastructure Team
-
-## 📞 Support
-
-For support and questions:
-- Create an issue on GitHub
-- Email: support@resivox.com
-
----
 
 **Built with ❤️ by the ResiVox Team**
