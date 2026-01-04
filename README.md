@@ -18,15 +18,7 @@ ResiVox is a comprehensive community management platform that enables residents 
 ### Admin Dashboard
 ![Admin Dashboard](https://via.placeholder.com/800x400/4f46e5/ffffff?text=Admin+Dashboard+with+Analytics)
 ### Resident
-<img width="550" height="250" alt="image" src="https://github.com/user-attachments/assets/873ed55f-1a29-4cd5-89a3-6eb598c0a6ad" />   <img width="550" height="250" alt="image" src="https://github.com/user-attachments/assets/9b589785-1403-4601-8d75-5ede0d1807db" />
-
-<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/51d6a0a5-4f6d-440c-9877-9129cfcbdc63" />
-
-<img width="1886" height="870" alt="image" src="https://github.com/user-attachments/assets/e5fc9f17-813d-4cca-8805-6ee238c97e1c" />
-
-<img width="1884" height="861" alt="image" src="https://github.com/user-attachments/assets/b0967a20-8434-45c1-8805-8a39ceb9c2ca" />
-
-<img width="1910" height="888" alt="image" src="https://github.com/user-attachments/assets/75d56ff9-54dc-46dd-97b2-1a34cda36de2" />
+<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/873ed55f-1a29-4cd5-89a3-6eb598c0a6ad" />   <img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/9b589785-1403-4601-8d75-5ede0d1807db" />   <img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/51d6a0a5-4f6d-440c-9877-9129cfcbdc63" />  <img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/e5fc9f17-813d-4cca-8805-6ee238c97e1c" />   <img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/b0967a20-8434-45c1-8805-8a39ceb9c2ca" />   <img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/75d56ff9-54dc-46dd-97b2-1a34cda36de2" />
 
 <img width="1889" height="872" alt="image" src="https://github.com/user-attachments/assets/99641d35-0d5e-43c6-bdba-346206dcf0bd" />
 
