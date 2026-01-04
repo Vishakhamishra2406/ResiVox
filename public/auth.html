@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResiVox - Login</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #8b5cf6;
+            --secondary-color: #64748b;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --info-color: #ec4899;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --border-color: #e2e8f0;
+            --purple-gradient: linear-gradient(135deg, #8b5cf6 0%, #a855f7 50%, #ec4899 100%);
+            --pink-gradient: linear-gradient(135deg, #ec4899 0%, #f472b6 50%, #fb7185 100%);
+            --purple-dark: linear-gradient(135deg, #6d28d9 0%, #7c3aed 50%, #8b5cf6 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 25%, #ec4899 75%, #f472b6 100%);
+            min-height: 100vh;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .auth-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            width: 100%;
+            max-width: 900px;
+            min-height: 600px;
+        }
+
+        .auth-left {
+            background: var(--purple-dark);
+            color: white;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .auth-right {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 600px;
+        }
+
+        .brand-logo {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ec4899;
+        }
+
+        .brand-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .brand-tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .feature-list {
+            text-align: left;
+            max-width: 300px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .feature-item i {
+            margin-right: 12px;
+            color: #f472b6;
+            width: 20px;
+        }
+
+        .auth-form {
+            max-width: 400px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .auth-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+            text-align: center;
+        }
+
+        .auth-subtitle {
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--purple-gradient);
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 50%, #d946ef 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+        }
+
+        .btn-link {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .btn-link:hover {
+            color: #7c3aed;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(139, 92, 246, 0.25);
+        }
+
+        .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(139, 92, 246, 0.25);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .auth-container {
+                margin: 1rem;
+                border-radius: 16px;
+            }
+            
+            .auth-left {
+                padding: 2rem;
+                text-align: center;
+            }
+            
+            .auth-right {
+                padding: 2rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 400px;
+            }
+            
+            .brand-name {
+                font-size: 2rem;
+            }
+
+            .auth-form {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="row g-0 h-100">
+            <!-- Left Side - Branding -->
+            <div class="col-md-6 auth-left">
+                <div class="brand-logo">🏠</div>
+                <h1 class="brand-name">ResiVox</h1>
+                <p class="brand-tagline">Voice-Driven Community Management</p>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <i class="fas fa-microphone"></i>
+                        <span>Voice-First Interface</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-robot"></i>
+                        <span>AI-Powered Assistance</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-users"></i>
+                        <span>Community Engagement</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Smart Analytics</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side - Auth Forms -->
+            <div class="col-md-6 auth-right">
+                <!-- Login Form -->
+                <div id="login-form" class="auth-form">
+                    <h2 class="auth-title">Welcome Back</h2>
+                    <p class="auth-subtitle">Sign in to your ResiVox account</p>
+
+                    <div id="auth-alerts"></div>
+
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginRole" class="form-label">I am a:</label>
+                            <select class="form-select" id="loginRole" required>
+                                <option value="">Select your role</option>
+                                <option value="resident">🏠 Resident</option>
+                                <option value="admin">👨‍💼 Community Manager</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="loginEmail" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Remember me</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 mb-3" id="loginBtn">
+                            <span class="btn-text">Sign In</span>
+                            <span class="loading-spinner hidden"></span>
+                        </button>
+                    </form>
+
+                    <div class="text-center">
+                        <span class="text-muted">Don't have an account? </span>
+                        <button type="button" class="btn btn-link p-0" onclick="showRegister()">Create Account</button>
+                    </div>
+                </div>
+
+                <!-- Register Form -->
+                <div id="register-form" class="auth-form hidden">
+                    <h2 class="auth-title">Create Account</h2>
+                    <p class="auth-subtitle">Join the ResiVox community</p>
+
+                    <div id="register-alerts"></div>
+
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label for="userRole" class="form-label">I am a:</label>
+                            <select class="form-select" id="userRole" required>
+                                <option value="">Select registration type</option>
+                                <option value="resident">🏠 Resident</option>
+                                <option value="admin">👨‍💼 Community Manager</option>
+                            </select>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="firstName" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="registerEmail" required>
+                        </div>
+
+                        <div class="mb-3" id="unitNumberField" style="display: none;">
+                            <label for="unitNumber" class="form-label">Unit Number</label>
+                            <input type="text" class="form-control" id="unitNumber" placeholder="e.g., 205, A-301">
+                        </div>
+
+                        <div class="mb-3" id="adminCodeField" style="display: none;">
+                            <label for="adminCode" class="form-label">Admin Access Code</label>
+                            <input type="password" class="form-control" id="adminCode" placeholder="Enter admin access code">
+                            <div class="form-text">
+                                <button type="button" class="btn btn-link p-0 small" onclick="showAdminHelp()">Need help? Click here</button>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="registerPassword" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" required>
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="agreeTerms" required>
+                            <label class="form-check-label" for="agreeTerms">
+                                I agree to the <a href="#" class="text-decoration-none">Terms of Service</a> and <a href="#" class="text-decoration-none">Privacy Policy</a>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 mb-3" id="registerBtn">
+                            <span class="btn-text">Create Account</span>
+                            <span class="loading-spinner hidden"></span>
+                        </button>
+                    </form>
+
+                    <div class="text-center">
+                        <span class="text-muted">Already have an account? </span>
+                        <button type="button" class="btn btn-link p-0" onclick="showLogin()">Sign In</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Help Modal -->
+    <div class="modal fade" id="adminHelpModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Admin Access Code</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>For Community Managers:</strong></p>
+                    <p>The admin access code is provided by your property management company. This ensures only authorized personnel can access administrative features.</p>
+                    <p><strong>Contact Information:</strong></p>
+                    <ul>
+                        <li>Property Management Office</li>
+                        <li>IT Support Team</li>
+                        <li>Building Administrator</li>
+                    </ul>
+                    <p class="text-muted"><small>For security reasons, admin codes are not displayed publicly.</small></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>

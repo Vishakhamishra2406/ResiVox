@@ -1,0 +1,40 @@
+{
+  "name": "resivox",
+  "version": "1.0.0",
+  "description": "ResiVox - Voice-Driven Virtual Customer Success Manager for Resident Support and Engagement",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon server.js",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install"
+  },
+  "keywords": [
+    "resivox",
+    "community",
+    "management",
+    "omnidim",
+    "customer-success",
+    "react"
+  ],
+  "author": "ResiVox Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "body-parser": "^1.20.2",
+    "socket.io": "^4.7.2",
+    "dotenv": "^16.3.1",
+    "mongoose": "^7.5.0",
+    "bcrypt": "^5.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.9.4",
+    "axios": "^1.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "concurrently": "^8.2.2"
+  }
+}

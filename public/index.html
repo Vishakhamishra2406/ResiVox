@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResiVox - Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #8b5cf6;
+            --secondary-color: #64748b;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --info-color: #ec4899;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --border-color: #e2e8f0;
+            --purple-gradient: linear-gradient(135deg, #8b5cf6 0%, #a855f7 50%, #ec4899 100%);
+            --pink-gradient: linear-gradient(135deg, #ec4899 0%, #f472b6 50%, #fb7185 100%);
+            --purple-dark: linear-gradient(135deg, #6d28d9 0%, #7c3aed 50%, #8b5cf6 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 25%, #ec4899 75%, #f472b6 100%);
+            min-height: 100vh;
+            color: var(--dark-color);
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+        }
+
+        .main-container {
+            background: white;
+            margin: 2rem auto;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            max-width: 1400px;
+        }
+
+        .sidebar {
+            background: var(--purple-dark);
+            min-height: 600px;
+            padding: 2rem 0;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8) !important;
+            padding: 1rem 2rem;
+            margin: 0.25rem 1rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: none;
+            background: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link:hover {
+            background: var(--pink-gradient);
+            color: white !important;
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
+        }
+
+        .nav-link.active {
+            background: var(--purple-gradient);
+            color: white !important;
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+        }
+
+        .nav-link i {
+            width: 20px;
+            margin-right: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover i,
+        .nav-link.active i {
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .content-area {
+            padding: 2rem;
+            min-height: 600px;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .page-subtitle {
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.15);
+        }
+
+        .stat-card {
+            background: var(--purple-gradient);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .voice-input-card {
+            background: var(--pink-gradient);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .voice-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+
+        .voice-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+            color: white;
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+        }
+
+        .voice-btn.listening {
+            background: var(--danger-color);
+            border-color: var(--danger-color);
+            animation: pulse 2s infinite;
+            box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .ticket-item {
+            border-left: 4px solid var(--border-color);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: var(--light-color);
+            border-radius: 0 12px 12px 0;
+            transition: all 0.3s ease;
+        }
+
+        .ticket-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
+        }
+
+        .priority-P1 { border-left-color: var(--danger-color); }
+        .priority-P2 { border-left-color: #f472b6; }
+        .priority-P3 { border-left-color: #a855f7; }
+        .priority-P4 { border-left-color: var(--success-color); }
+
+        .hidden { display: none !important; }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .voice-waveform {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            margin: 1rem 0;
+        }
+
+        .wave-bar {
+            width: 4px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 2px;
+            animation: wave 1.5s ease-in-out infinite;
+        }
+
+        .wave-bar:nth-child(2) { animation-delay: 0.1s; }
+        .wave-bar:nth-child(3) { animation-delay: 0.2s; }
+        .wave-bar:nth-child(4) { animation-delay: 0.3s; }
+        .wave-bar:nth-child(5) { animation-delay: 0.4s; }
+
+        @keyframes wave {
+            0%, 100% { height: 20px; }
+            50% { height: 40px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Simple token check -->
+    <script>
+        const token = localStorage.getItem('resivox_token');
+        if (!token) {
+            console.log('No token found, redirecting to auth');
+            window.location.href = '/auth';
+        }
+    </script>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-microphone-alt me-2"></i>
+                ResiVox
+            </a>
+            <div class="navbar-nav ms-auto d-flex align-items-center">
+                <div class="nav-item me-3">
+                    <span class="nav-link">
+                        <span class="status-indicator status-online"></span>
+                        <span id="connection-status">Connected</span>
+                    </span>
+                </div>
+                <div class="nav-item me-3">
+                    <span class="nav-link" id="user-display">
+                        <i class="fas fa-user me-1"></i>
+                        <span id="user-name">Loading...</span>
+                    </span>
+                </div>
+                <div class="nav-item">
+                    <button class="btn btn-danger" onclick="logout()" id="logout-btn">
+                        <i class="fas fa-sign-out-alt me-1"></i>
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container-fluid">
+        <div class="main-container">
+            <div class="row g-0">
+                <!-- Sidebar -->
+                <div class="col-lg-3">
+                    <div class="sidebar">
+                        <nav class="nav flex-column">
+                            <button class="nav-link active" data-page="dashboard">
+                                <i class="fas fa-tachometer-alt"></i>
+                                Dashboard
+                            </button>
+                            <button class="nav-link" data-page="voice">
+                                <i class="fas fa-microphone"></i>
+                                Voice Commands
+                            </button>
+                            <button class="nav-link" data-page="tickets">
+                                <i class="fas fa-ticket-alt"></i>
+                                Support Tickets
+                            </button>
+                            <button class="nav-link" data-page="events">
+                                <i class="fas fa-calendar-alt"></i>
+                                Events
+                            </button>
+                            <button class="nav-link" data-page="feedback">
+                                <i class="fas fa-comments"></i>
+                                Feedback
+                            </button>
+                            <button class="nav-link" data-page="analytics">
+                                <i class="fas fa-chart-bar"></i>
+                                Analytics
+                            </button>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Content Area -->
+                <div class="col-lg-9">
+                    <div class="content-area">
+                        <!-- Dashboard Page -->
+                        <div id="dashboard-page" class="page-content">
+                            <h1 class="page-title">Dashboard Overview</h1>
+                            <p class="page-subtitle">Welcome to your ResiVox dashboard</p>
+
+                            <!-- Stats Cards -->
+                            <div class="row mb-4">
+                                <div class="col-md-3">
+                                    <div class="card stat-card">
+                                        <div class="stat-number" id="total-tickets">-</div>
+                                        <div class="stat-label">Total Tickets</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card stat-card">
+                                        <div class="stat-number" id="active-events">-</div>
+                                        <div class="stat-label">Active Events</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card stat-card">
+                                        <div class="stat-number" id="voice-interactions">-</div>
+                                        <div class="stat-label">Voice Interactions</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card stat-card">
+                                        <div class="stat-number" id="satisfaction-rate">-</div>
+                                        <div class="stat-label">Satisfaction Rate</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Quick Actions -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                <i class="fas fa-bolt text-warning me-2"></i>
+                                                Quick Actions
+                                            </h5>
+                                            <div class="d-grid gap-2">
+                                                <button class="btn btn-primary" onclick="switchToPage('voice')">
+                                                    <i class="fas fa-microphone me-2"></i>
+                                                    Start Voice Session
+                                                </button>
+                                                <button class="btn btn-outline-primary" onclick="switchToPage('tickets')">
+                                                    <i class="fas fa-ticket-alt me-2"></i>
+                                                    View All Tickets
+                                                </button>
+                                                <button class="btn btn-info" onclick="switchToPage('events')">
+                                                    <i class="fas fa-calendar-alt me-2"></i>
+                                                    Manage Events
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                <i class="fas fa-chart-line text-success me-2"></i>
+                                                System Status
+                                            </h5>
+                                            <div id="system-status">
+                                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                                    <span>Voice Processing</span>
+                                                    <span class="badge bg-success">Operational</span>
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                                    <span>Omnidim.io Integration</span>
+                                                    <span class="badge bg-success">Connected</span>
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                                    <span>Database</span>
+                                                    <span class="badge bg-warning">In-Memory</span>
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <span>Analytics</span>
+                                                    <span class="badge bg-success">Active</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Other pages will be loaded here by JavaScript -->
+                        <div id="voice-page" class="page-content hidden"></div>
+                        <div id="tickets-page" class="page-content hidden"></div>
+                        <div id="events-page" class="page-content hidden"></div>
+                        <div id="feedback-page" class="page-content hidden"></div>
+                        <div id="analytics-page" class="page-content hidden"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
