@@ -1,4 +1,4 @@
-
+# ResiVox
 ![ResiVox Logo](https://img.shields.io/badge/ResiVox-Voice%20Enabled-blue?style=for-the-badge&logo=microphone)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
@@ -9,8 +9,6 @@ ResiVox is a comprehensive community management platform that enables residents 
 ## 🎯 Live Demo
 
 - **Application**: [http://localhost:3001](http://localhost:3001) (after setup)
-- **Admin Login**: admin@resivox.com / admin123
-- **GitHub Repository**: [https://github.com/Vishakhamishra2406/ResiVox](https://github.com/Vishakhamishra2406/ResiVox)
 
 ## 📸 Screenshots
 
@@ -49,10 +47,8 @@ ResiVox is a comprehensive community management platform that enables residents 
 
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB with Mongoose
-- **Authentication**: JWT (JSON Web Tokens)
 - **Frontend**: Vanilla JavaScript, Bootstrap 5
 - **Voice Processing**: Omnidim.io API integration
-- **Real-time**: Socket.io support
 
 ## 📋 Prerequisites
 
@@ -131,8 +127,8 @@ The application will be available at: **http://localhost:3001**
 ## 🔑 Default Login Credentials
 
 ### Admin Access:
-- **Email**: admin@resivox.com
-- **Password**: admin123
+- **Email**: yourmail@gmail.com
+- **Password**: password
 - **Admin Code**: RESIVOX_ADMIN_2024
 
 ### Resident Access:
@@ -174,7 +170,7 @@ Create a new account by registering as a resident with any email and unit number
 ┌─────────────┐    ┌─────────────┐    ┌─────────────┐
 │    Users    │    │   Tickets   │    │   Events    │
 ├─────────────┤    ├─────────────┤    ├─────────────┤
-│ _id         │◄──┤ userId      │    │ _id         │
+│ _id         │◄── ┤ userId      │    │ _id         │
 │ firstName   │    │ title       │    │ title       │
 │ lastName    │    │ description │    │ description │
 │ email       │    │ priority    │    │ date        │
@@ -194,7 +190,7 @@ Create a new account by registering as a resident with any email and unit number
                    │ sentiment   │                       │
                    └─────────────┘                       │
                                                          │
-                                 ┌─────────────────────────┘
+                               ┌─────────────────────────┘
 ```
 
 ## 🎨 API Documentation
@@ -270,61 +266,6 @@ ResiVox/
 └── server.js              # Express server
 ```
 
-## 🚀 Deployment
-
-### Environment Variables for Production:
-```env
-NODE_ENV=production
-MONGODB_URI=your-production-mongodb-uri
-JWT_SECRET=your-super-secure-jwt-secret
-PORT=3001
-OMNIDIM_API_KEY=your-omnidim-api-key
-```
-
-### Deployment Platforms:
-- **Heroku**: Add MongoDB Atlas add-on
-- **Railway**: Connect to MongoDB Atlas
-- **DigitalOcean**: Use managed MongoDB
-- **AWS**: Use DocumentDB or MongoDB Atlas
-- **Vercel**: For frontend deployment
-- **Netlify**: Alternative frontend hosting
-
-### Docker Deployment:
-```dockerfile
-# Dockerfile
-FROM node:18-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --only=production
-COPY . .
-EXPOSE 3001
-CMD ["npm", "start"]
-```
-
-### Docker Compose:
-```yaml
-# docker-compose.yml
-version: '3.8'
-services:
-  app:
-    build: .
-    ports:
-      - "3001:3001"
-    environment:
-      - MONGODB_URI=mongodb://mongo:27017/resivox
-    depends_on:
-      - mongo
-  
-  mongo:
-    image: mongo:5.0
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongo_data:/data/db
-
-volumes:
-  mongo_data:
-```
 
 ## 🔒 Security Features
 
