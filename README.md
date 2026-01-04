@@ -1,4 +1,3 @@
-<img width="1886" height="870" alt="image" src="https://github.com/user-attachments/assets/be1b2dc7-6b3e-4394-ba23-c2e2b8218a9a" /># ResiVox - Voice-Enabled Community Management System
 
 ![ResiVox Logo](https://img.shields.io/badge/ResiVox-Voice%20Enabled-blue?style=for-the-badge&logo=microphone)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
@@ -17,15 +16,15 @@ ResiVox is a comprehensive community management platform that enables residents 
 
 ### Admin Dashboard
 ![Admin Dashboard](https://via.placeholder.com/800x400/4f46e5/ffffff?text=Admin+Dashboard+with+Analytics)
-### Resident
+### Resident Side
 <img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/873ed55f-1a29-4cd5-89a3-6eb598c0a6ad" />   <img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/9b589785-1403-4601-8d75-5ede0d1807db" />   <img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/51d6a0a5-4f6d-440c-9877-9129cfcbdc63" />  <img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/e5fc9f17-813d-4cca-8805-6ee238c97e1c" />   <img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/b0967a20-8434-45c1-8805-8a39ceb9c2ca" />   <img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/75d56ff9-54dc-46dd-97b2-1a34cda36de2" />
 
-<img width="1889" height="872" alt="image" src="https://github.com/user-attachments/assets/99641d35-0d5e-43c6-bdba-346206dcf0bd" />
 
-<img width="1893" height="866" alt="image" src="https://github.com/user-attachments/assets/9f5ab6c6-9062-42a2-9450-3a8e38931bdf" />
-
-<img width="1885" height="829" alt="image" src="https://github.com/user-attachments/assets/a6af3101-c460-4d63-8073-fe3d4e6a9e82" />
-<img width="1882" height="864" alt="image" src="https://github.com/user-attachments/assets/764861de-9250-41ed-9034-8751b1318937" />
+### Admin Side
+<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/99641d35-0d5e-43c6-bdba-346206dcf0bd" />
+<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/9f5ab6c6-9062-42a2-9450-3a8e38931bdf" />
+<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/a6af3101-c460-4d63-8073-fe3d4e6a9e82" />
+<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/764861de-9250-41ed-9034-8751b1318937" />
 <img width="1908" height="907" alt="image" src="https://github.com/user-attachments/assets/9cdce546-46be-4165-a949-75d5a2b68a4f" />
 
 ![Voice Assistant](https://via.placeholder.com/800x400/059669/ffffff?text=Voice+Assistant+Interface)
